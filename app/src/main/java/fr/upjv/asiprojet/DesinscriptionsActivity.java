@@ -5,17 +5,15 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class DesinscriptionsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_desinscriptions);
     }
-
-    public void pageSuivante(View view) {
-        Intent intent = new Intent(this, LoginActivity.class);
+    public void pagePrecedente(View view) {
+        Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
     }
 }

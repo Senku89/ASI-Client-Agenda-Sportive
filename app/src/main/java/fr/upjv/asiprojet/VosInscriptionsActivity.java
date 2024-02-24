@@ -1,5 +1,8 @@
 package fr.upjv.asiprojet;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,19 @@ public class VosInscriptionsActivity extends AppCompatActivity {
         List.add("Basketball 22/02/2024");
         ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,List);
         ListVosInscriptions.setAdapter(arrayAdapter);
+        ListVosInscriptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+
+                startActivity(new Intent(VosInscriptionsActivity.this,DesinscriptionsActivity.class));
+            }
+
+        });
+
+    }
+    public void pagePrecdente(View view) {
+        Intent intent = new Intent(this, CalendarActivity.class);
+        startActivity(intent);
     }
 
 

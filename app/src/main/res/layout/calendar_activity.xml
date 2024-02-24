@@ -5,16 +5,19 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Activity3" android:background="@android:color/darker_gray">
+        tools:context=".CalendarActivity" android:background="@android:color/darker_gray">
 
-    <CalendarView
-            android:layout_width="416dp"
-            android:layout_height="340dp" android:id="@+id/calendarView"
+    <Button
+            android:text="Se Deconnecter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button7"
+            android:onClick="pagePrecedente"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp" app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="333dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp" android:layout_marginEnd="31dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginTop="12dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="671dp" android:layout_marginEnd="246dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"
+    />
     <Button
             android:text="Vos inscriptions"
             android:layout_width="wrap_content"
@@ -25,9 +28,10 @@
             android:layout_marginBottom="671dp" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:onClick="VosInscriptions"/>
     <ListView
-            android:layout_width="406dp"
-            android:layout_height="276dp"
+            android:layout_width="405dp"
+            android:layout_height="664dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="398dp"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="2dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="1dp" android:id="@+id/Liste2"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="1dp" android:id="@+id/Liste2"
+            app:layout_constraintVertical_bias="1.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

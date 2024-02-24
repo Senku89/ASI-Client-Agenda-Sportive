@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity2" android:background="@android:color/darker_gray">
+        tools:context=".LoginActivity" android:background="@android:color/darker_gray" android:onClick="pagePrecedente">
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
             android:layout_marginTop="46dp" android:layout_marginBottom="593dp" android:id="@+id/textView3"
             app:layout_constraintHorizontal_bias="0.0"/>
     <TextView
-            android:text="Pseudo/Email"
+            android:text="Nom d'utilisateur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView4"
             app:layout_constraintTop_toTopOf="parent"
@@ -53,7 +53,7 @@
             android:layout_marginTop="481dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="202dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="139dp" android:layout_marginEnd="140dp"
-            app:layout_constraintEnd_toEndOf="parent" android:onClick="PageSuivante"/>
+            app:layout_constraintEnd_toEndOf="parent"/>
     <EditText
             android:layout_width="305dp"
             android:layout_height="48dp"
@@ -76,5 +76,14 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintTop_toBottomOf="@+id/textView5" app:layout_constraintBottom_toTopOf="@+id/button2"
             android:text="mot de passe"/>
+    <Button
+            android:text="Retour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button6"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="682dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="1dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="317dp" android:layout_marginEnd="3dp"
+            app:layout_constraintEnd_toEndOf="parent" android:onClick="pagePrecedente"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
