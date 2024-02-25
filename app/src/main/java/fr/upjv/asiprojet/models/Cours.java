@@ -84,4 +84,15 @@ public class Cours {
                 + idCours +
                 "\nNom : " + nomCours + "\nDate : " + horaire;
     }
+
+    public String toStringDetaille() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("ID du cours : ").append(idCours).append("\n");
+        stringBuilder.append("Nom du cours : ").append(nomCours).append("\n");
+        stringBuilder.append("Horaire : ").append(horaire).append("\n");
+        stringBuilder.append("Lieu : ").append(lieu).append("\n");
+        stringBuilder.append("Description : ").append(description).append("\n");
+        stringBuilder.append("Instructeur : ").append(instructeur);
+        return stringBuilder.toString();
+    }
 }

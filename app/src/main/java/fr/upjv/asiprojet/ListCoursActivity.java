@@ -68,7 +68,7 @@ public class ListCoursActivity extends AppCompatActivity {
                 intent.putExtra("idUser", idUser);
                 intent.putExtra("nom", nom);
                 intent.putExtra("idCours", selectedCours.getIdCours());
-                intent.putExtra("Cours", selectedCours.toString());
+                intent.putExtra("Cours", selectedCours.toStringDetaille());
                 startActivity(intent);
             }
         });
