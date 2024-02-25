@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -53,9 +54,19 @@ public class ListCoursActivity extends AppCompatActivity {
         this.nom = intent.getStringExtra("nom");
 
         Log.d(TAG, "ID: " + id + ", Nom: " + nom);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent,View view, int position,long id){
 
+                startActivity(new Intent(ListCoursActivity.this,InscriptionsActivity.class));
+            }
+
+        });
         // Creer et executer la tache pour la liste des cours
         new ListCoursTask(handler).execute();
+
+
+
 
     }
 

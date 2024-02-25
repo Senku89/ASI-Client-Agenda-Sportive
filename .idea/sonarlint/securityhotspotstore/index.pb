@@ -29,3 +29,5 @@ b
 2app/src/main/java/fr/upjv/asiprojet/LoginTask.java,6/6/6615ded0035e40d65fe5f2fe63de70476394a5b5
 @
 local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
+j
+:app/src/main/java/fr/upjv/asiprojet/ListCoursActivity.java,7/1/7142c64ac2fb1cebb03c223f7936177f4ba414a4
