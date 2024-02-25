@@ -37,3 +37,5 @@ e
 5app/src/main/java/fr/upjv/asiprojet/models/Cours.java,f/3/f391fc827ea4376119e2634c8e252d8e14853d81
 h
 8app/src/main/java/fr/upjv/asiprojet/models/UserInfo.java,2/3/2315799e6515087c0d7ccc1c55edebdef4316d6f
+t
+Dapp/src/main/java/fr/upjv/asiprojet/tasks/DeleteInscriptionTask.java,b/a/ba42811460d36750c2cd09842dc3569f640257e9
