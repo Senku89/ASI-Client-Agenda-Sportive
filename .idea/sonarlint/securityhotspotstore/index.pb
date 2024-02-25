@@ -1,3 +1,31 @@
 
-t
-Dapp/src/main/java/fr/upjv/asi_client_agenda_sportive/MainActivity.kt,d/7/d70de827a9144f4f151be3f001de7fd088da141d
+e
+5app/src/main/java/fr/upjv/asiprojet/MainActivity.java,1\a\1a6f917171e91360c0fc1c49346d137f247d3b82
+p
+@app/src/main/java/fr/upjv/asiprojet/VosInscriptionsActivity.java,a/0/a03d33f18e8a2e3260afb652650057436f167176
+f
+6app/src/main/java/fr/upjv/asiprojet/LoginActivity.java,2/7/2758c4b9cfd2e3b06c60f283c7965b00b1ca77ec
+i
+9app/src/main/java/fr/upjv/asiprojet/CalendarActivity.java,a/c/ac0ecde12730f890e1e0dc33cba3f853e95d4545
+m
+=app/src/main/java/fr/upjv/asiprojet/InscriptionsActivity.java,6/3/63107a7b38d538c55d1093bffe6a7d32f6d9584e
+p
+@app/src/main/java/fr/upjv/asiprojet/DesinscriptionsActivity.java,4/8/487aea4390aeb384c2adac6552c804a02f927b31
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+X
+(gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+7
+gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
+A
+gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
+D
+app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+C
+settings.gradle.kts,7/4/749edfcc96398253e5b3416184e95c46621da850
+@
+build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
+b
+2app/src/main/java/fr/upjv/asiprojet/LoginTask.java,6/6/6615ded0035e40d65fe5f2fe63de70476394a5b5
+@
+local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca

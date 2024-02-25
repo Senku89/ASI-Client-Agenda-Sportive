@@ -13,5 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ASI-Client-Agenda-Sportive"
+rootProject.name = "AsiProjet"
 include(":app")
+ 
