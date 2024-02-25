@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,21 +17,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import fr.upjv.asiprojet.models.Cours;
 import fr.upjv.asiprojet.tasks.ListCoursTask;
 
 public class ListCoursActivity extends AppCompatActivity {
+    private int id;
+    private String nom;
 
     ListView listView;
-    private static final String TAG = "CalendarActivity"; // Definir TAG pour cette class
+    private static final String TAG = "ListCoursActivity"; // Definir TAG pour cette class
     private final Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
@@ -49,6 +46,13 @@ public class ListCoursActivity extends AppCompatActivity {
         setContentView(R.layout.calendar_activity);
 
         this.listView = findViewById(R.id.Liste2);
+
+        // Obtenir l'id et le nom de de l'intent
+        Intent intent = getIntent();
+        this.id = intent.getIntExtra("id", -1);
+        this.nom = intent.getStringExtra("nom");
+
+        Log.d(TAG, "ID: " + id + ", Nom: " + nom);
 
         // Creer et executer la tache pour la liste des cours
         new ListCoursTask(handler).execute();
@@ -90,6 +94,8 @@ public class ListCoursActivity extends AppCompatActivity {
 
     public void pagePrecedente(View view) {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("nom", nom);
         startActivity(intent);
     }
 }
