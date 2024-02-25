@@ -1,6 +1,6 @@
 
 e
-5app/src/main/java/fr/upjv/asiprojet/MainActivity.java,1/a/1a6f917171e91360c0fc1c49346d137f247d3b82
+5app/src/main/java/fr/upjv/asiprojet/MainActivity.java,1\a\1a6f917171e91360c0fc1c49346d137f247d3b82
 p
 @app/src/main/java/fr/upjv/asiprojet/VosInscriptionsActivity.java,a/0/a03d33f18e8a2e3260afb652650057436f167176
 f
@@ -27,3 +27,5 @@ C
 build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
 b
 2app/src/main/java/fr/upjv/asiprojet/LoginTask.java,6/6/6615ded0035e40d65fe5f2fe63de70476394a5b5
+@
+local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca

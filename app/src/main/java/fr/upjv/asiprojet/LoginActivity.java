@@ -1,39 +1,66 @@
 package fr.upjv.asiprojet;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
-import android.nfc.Tag;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+
 import android.os.Bundle;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+
+import fr.upjv.asiprojet.tasks.LoginTask;
 
 public class LoginActivity extends AppCompatActivity {
-private EditText username ;
-private EditText password;
+    private EditText username;
+    private EditText password;
+    private Button button;
 
-private static final String TAG = "LoginActivity"; // Definir TAG pour cette class
+    private static final String TAG = "LoginActivity"; // Definir TAG pour cette class
 
-    private Handler handler = new Handler(new Handler.Callback() {
+    private final Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            boolean success = (boolean) msg.obj;
-            // En fonction de la réponse, prendre les mesures appropriées
-            if (success) {
-                // Connexion réussie
-                Log.d(TAG, "fonctionne");
-            } else {
-                // Échec de la connexion
-                Log.e(TAG, "fonctionne pas");
+            JSONObject jsonResponse = (JSONObject) msg.obj;
+
+            if (jsonResponse != null) {
+                try {
+                    // Extraire le champ "success" de la reponse JSON
+                    boolean success = jsonResponse.getBoolean("success");
+
+                    // Extraire le id et le nom
+                    int id = jsonResponse.getInt("id");
+                    String nom = jsonResponse.getString("nom");
+
+                    // Affichage console
+                    Log.d(TAG, "ID: " + id + ", Nom: " + nom);
+
+                    if (success) {
+                        Log.d(TAG, "Connexion réussie : Utilisateur connecté");
+                        pageSuivante(button, id, nom);
+                    } else {
+                        Log.e(TAG, "Échec de la connexion : Nom d'utilisateur ou mot de passe incorrect");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
+
             return true;
         }
     });
@@ -42,6 +69,9 @@ private static final String TAG = "LoginActivity"; // Definir TAG pour cette cla
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_main);
+
+        button = findViewById(R.id.button2);
+
         // Exemple d'utilisation : déclencher la tâche de connexion depuis un bouton
         findViewById(R.id.button2).setOnClickListener(v -> {
             username = findViewById(R.id.editTextText2);
@@ -51,20 +81,26 @@ private static final String TAG = "LoginActivity"; // Definir TAG pour cette cla
             new LoginTask(username.getText().toString(), password.getText().toString(), handler).execute();
         });
 
-        
 
     }
-//deuxieme bouton
-   /* public void pageSuivante(View view) {
 
+    //Deuxieme bouton
+    public void pageSuivante(View view, int id, String nom) {
         Intent intent = new Intent(this, CalendarActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("nom", nom);
         startActivity(intent);
-    }*/
+    }
+
     public void pagePrecedente(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-    }/*
-public void login() {
+    }
+}
+
+//A SUPPRIMER
+    /*
+    public void login() {
 
     HttpURLConnection urlConnection = null;
     try {
@@ -116,6 +152,4 @@ public void login() {
         }
     }
 
-}*/
-
-}
+    }*/
