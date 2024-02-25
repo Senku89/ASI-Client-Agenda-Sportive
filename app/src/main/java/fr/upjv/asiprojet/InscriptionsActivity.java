@@ -39,13 +39,11 @@ public class InscriptionsActivity extends AppCompatActivity {
             int statusCode = (int) msg.obj; // Cast the message object to int
             if (statusCode == HttpURLConnection.HTTP_OK) {
                 // La réponse est OK, récupérer la réponse de l'API et l'afficher
-                String response = (String) msg.getData().get("response"); // Get response from message data
+                String response = (String) msg.obj; // Get response from message data
                 Toast.makeText(InscriptionsActivity.this, response, Toast.LENGTH_SHORT).show();
-                Log.d(TAG, response);
             } else {
                 // La réponse n'est pas OK, afficher un message d'erreur
                 Toast.makeText(InscriptionsActivity.this, "Erreur lors de l'ajout de l'inscription", Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "Erreur lors de l'ajout de l'inscription");
             }
         }
     };
@@ -64,9 +62,6 @@ public class InscriptionsActivity extends AppCompatActivity {
         this.nom = intent.getStringExtra("nom");
         this.idCours = intent.getIntExtra("idCours", -1);
         this.cours = intent.getStringExtra("Cours");
-
-        // Print valeurs sur la logconsole
-        Log.d(TAG, "ID: " + idUser + ", Nom: " + nom + ", ID Cours: " + idCours + ", Cours: " + cours);
 
         textView.setText(cours); // Définir le texte du TextView avec la valeur cours
     }
