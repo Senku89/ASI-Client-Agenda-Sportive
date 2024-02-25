@@ -1,11 +1,6 @@
 package fr.upjv.asiprojet;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -15,9 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import android.os.Bundle;
 
@@ -59,9 +51,10 @@ public class LoginActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            } else {
+                Log.e(TAG, "Réponse JSON vide");
             }
-
-            return true;
+            return false;
         }
     });
 
@@ -86,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //Deuxieme bouton
     public void pageSuivante(View view, int id, String nom) {
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, ListCoursActivity.class);
         intent.putExtra("id", id);
         intent.putExtra("nom", nom);
         startActivity(intent);

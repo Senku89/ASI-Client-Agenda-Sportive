@@ -36,7 +36,7 @@ public class VosInscriptionsActivity extends AppCompatActivity {
 
     }
     public void pagePrecdente(View view) {
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, ListCoursActivity.class);
         startActivity(intent);
     }
 

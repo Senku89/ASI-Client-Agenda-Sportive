@@ -13,7 +13,7 @@ public class DesinscriptionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_desinscriptions);
     }
     public void pagePrecedente(View view) {
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, ListCoursActivity.class);
         startActivity(intent);
     }
 }

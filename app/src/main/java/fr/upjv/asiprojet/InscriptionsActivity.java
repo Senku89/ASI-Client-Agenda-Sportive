@@ -13,7 +13,7 @@ public class InscriptionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inscriptions);
     }
     public void pagePrecedente(View view) {
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, ListCoursActivity.class);
         startActivity(intent);
     }
 }
