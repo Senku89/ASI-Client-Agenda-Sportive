@@ -21,7 +21,7 @@
                 android:name=".InscriptionsActivity"
                 android:exported="false"/>
         <activity
-                android:name=".VosInscriptionsActivity"
+                android:name=".MesInscriptionsActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ListCoursActivity"

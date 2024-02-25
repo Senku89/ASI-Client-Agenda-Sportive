@@ -1,5 +1,7 @@
 package fr.upjv.asiprojet;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,15 +26,15 @@ import fr.upjv.asiprojet.models.Cours;
 import fr.upjv.asiprojet.tasks.ListCoursTask;
 
 public class ListCoursActivity extends AppCompatActivity {
-    private int id;
+    private int idUser;
     private String nom;
+    private List<Cours> coursList;
+    private ListView listView;
 
-    ListView listView;
-    private static final String TAG = "ListCoursActivity"; // Definir TAG pour cette class
     private final Handler handler = new Handler(Looper.getMainLooper(), new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            List<Cours> coursList = (List<Cours>) msg.obj;
+            coursList = (List<Cours>) msg.obj;
             if (coursList != null) {
                 // Mettre à jour l'UI avec la liste des objets Cours
                 updateUIWithCoursList(coursList);
@@ -44,30 +46,34 @@ public class ListCoursActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.calendar_activity);
+        setContentView(R.layout.listcours_activity);
 
         this.listView = findViewById(R.id.Liste2);
 
         // Obtenir l'id et le nom de de l'intent
         Intent intent = getIntent();
-        this.id = intent.getIntExtra("id", -1);
+        this.idUser = intent.getIntExtra("idUser", -1);
         this.nom = intent.getStringExtra("nom");
 
-        Log.d(TAG, "ID: " + id + ", Nom: " + nom);
+        Log.d(TAG, "ID: " + idUser + ", Nom: " + nom); // Affichage des valeurs
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent,View view, int position,long id){
 
-                startActivity(new Intent(ListCoursActivity.this,InscriptionsActivity.class));
-            }
+                Cours selectedCours = coursList.get(position); // Obtenir la position du cours
 
+                // Valeurs a passer pour realiser les inscriptions
+                Intent intent = new Intent(ListCoursActivity.this, InscriptionsActivity.class);
+                intent.putExtra("idUser", idUser);
+                intent.putExtra("nom", nom);
+                intent.putExtra("idCours", selectedCours.getIdCours());
+                intent.putExtra("Cours", selectedCours.toString());
+                startActivity(intent);
+            }
         });
         // Creer et executer la tache pour la liste des cours
         new ListCoursTask(handler).execute();
-
-
-
-
     }
 
     private void updateUIWithCoursList(List<Cours> coursList) {
@@ -98,15 +104,15 @@ public class ListCoursActivity extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
     }
 
-    public void VosInscriptions(View view) {
-        Intent intent = new Intent(this, VosInscriptionsActivity.class);
+    public void mesInscriptions(View view) {
+        Intent intent = new Intent(this, MesInscriptionsActivity.class);
+        intent.putExtra("idUser", idUser);
+        intent.putExtra("nom", nom);
         startActivity(intent);
     }
 
     public void pagePrecedente(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("id", id);
-        intent.putExtra("nom", nom);
         startActivity(intent);
     }
 }

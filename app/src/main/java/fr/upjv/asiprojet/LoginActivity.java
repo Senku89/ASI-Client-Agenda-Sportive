@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     //Deuxieme bouton
     public void pageSuivante(View view, int id, String nom) {
         Intent intent = new Intent(this, ListCoursActivity.class);
-        intent.putExtra("id", id);
+        intent.putExtra("idUser", id);
         intent.putExtra("nom", nom);
         startActivity(intent);
     }

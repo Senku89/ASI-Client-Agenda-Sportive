@@ -1,23 +1,43 @@
 package fr.upjv.asiprojet;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class VosInscriptionsActivity extends AppCompatActivity {
+public class MesInscriptionsActivity extends AppCompatActivity {
+    private int idUser;
+    private String nom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vos_inscriptions);
-        ListView ListVosInscriptions = findViewById(R.id.Liste2);
+        setContentView(R.layout.activity_mes_inscriptions);
+
+        // Obtenir l'id et le nom de de l'intent
+        Intent intent = getIntent();
+        this.idUser = intent.getIntExtra("idUser", -1);
+        this.nom = intent.getStringExtra("nom");
+
+        Log.d(TAG, "ID: " + idUser + ", Nom: " + nom); // Affichage des valeurs
+
+    }
+    public void pagePrecdente(View view) {
+        Intent intent = new Intent(this, ListCoursActivity.class);
+        intent.putExtra("idUser", idUser);
+        intent.putExtra("nom", nom);
+        startActivity(intent);
+    }
+
+
+}
+
+/*
+ListView ListVosInscriptions = findViewById(R.id.Liste2);
         List<String> List = new ArrayList<>();
         List.add("Tennis 12/01/2024");
         List.add("Football 13/02/2024");
@@ -33,12 +53,4 @@ public class VosInscriptionsActivity extends AppCompatActivity {
             }
 
         });
-
-    }
-    public void pagePrecdente(View view) {
-        Intent intent = new Intent(this, ListCoursActivity.class);
-        startActivity(intent);
-    }
-
-
-}
+ */
