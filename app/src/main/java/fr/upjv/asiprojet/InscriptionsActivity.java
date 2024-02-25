@@ -39,7 +39,7 @@ public class InscriptionsActivity extends AppCompatActivity {
             int statusCode = (int) msg.obj; // Cast the message object to int
             if (statusCode == HttpURLConnection.HTTP_OK) {
                 // La réponse est OK, récupérer la réponse de l'API et l'afficher
-                String response = (String) msg.obj; // Get response from message data
+                String response = (String) msg.getData().get("response"); // Get response from message data
                 Toast.makeText(InscriptionsActivity.this, response, Toast.LENGTH_SHORT).show();
             } else {
                 // La réponse n'est pas OK, afficher un message d'erreur
