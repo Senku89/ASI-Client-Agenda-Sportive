@@ -3,27 +3,27 @@ package fr.upjv.asiprojet;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import fr.upjv.asiprojet.models.Cours;
-import fr.upjv.asiprojet.tasks.ListCoursTask;
-import fr.upjv.asiprojet.tasks.MesInscriptionsTask;
 
 import java.util.List;
+
+import fr.upjv.asiprojet.models.Cours;
+import fr.upjv.asiprojet.tasks.MesInscriptionsTask;
 
 public class MesInscriptionsActivity extends AppCompatActivity {
     private int idUser;
@@ -37,7 +37,7 @@ public class MesInscriptionsActivity extends AppCompatActivity {
             coursList = (List<Cours>) msg.obj;
             if (coursList != null) {
                 // Mettre à jour l'UI avec la liste des objets Cours
-                updateUIWithCoursList(coursList);
+                listerListCoursInscrits(coursList);
             }
             return true;
         }
@@ -75,7 +75,7 @@ public class MesInscriptionsActivity extends AppCompatActivity {
         new MesInscriptionsTask(handler).execute(idUser);
     }
 
-    private void updateUIWithCoursList(List<Cours> coursList) {
+    private void listerListCoursInscrits(List<Cours> coursList) {
         // Créer un adaptateur personnalisé pour afficher les objets Cours
         ArrayAdapter<Cours> arrayAdapter = new ArrayAdapter<Cours>(this, android.R.layout.simple_list_item_1, coursList) {
             @NonNull
@@ -103,31 +103,10 @@ public class MesInscriptionsActivity extends AppCompatActivity {
         listView.setAdapter(arrayAdapter);
     }
 
-    public void pagePrecdente(View view) {
+    public void pagePrecedente(View view) {
         Intent intent = new Intent(this, ListCoursActivity.class);
         intent.putExtra("idUser", idUser);
         intent.putExtra("nom", nom);
         startActivity(intent);
     }
-
-
 }
-
-/*
-ListView ListVosInscriptions = findViewById(R.id.Liste2);
-        List<String> List = new ArrayList<>();
-        List.add("Tennis 12/01/2024");
-        List.add("Football 13/02/2024");
-        List.add("Rugby 14/02/2024");
-        List.add("Basketball 22/02/2024");
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,List);
-        ListVosInscriptions.setAdapter(arrayAdapter);
-        ListVosInscriptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-
-                startActivity(new Intent(VosInscriptionsActivity.this,DesinscriptionsActivity.class));
-            }
-
-        });
- */

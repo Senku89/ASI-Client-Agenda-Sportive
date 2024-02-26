@@ -3,6 +3,7 @@ package fr.upjv.asiprojet;
 import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -10,13 +11,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import fr.upjv.asiprojet.tasks.AddInscriptionTask;
-import fr.upjv.asiprojet.tasks.DeleteInscriptionTask;
 
 import java.net.HttpURLConnection;
+
+import fr.upjv.asiprojet.tasks.DeleteInscriptionTask;
 
 public class DesinscriptionsActivity extends AppCompatActivity {
     private int idUser;
@@ -73,6 +74,7 @@ public class DesinscriptionsActivity extends AppCompatActivity {
         intent.putExtra("nom", nom);
         startActivity(intent);
     }
+
     public void onClickDesinscription(View view) {
         // Appel de la méthode pour supprimer l'inscription
         new DeleteInscriptionTask(handler).execute(idUser, idCours);

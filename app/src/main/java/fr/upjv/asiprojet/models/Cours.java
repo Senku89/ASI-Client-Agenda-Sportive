@@ -1,16 +1,17 @@
 package fr.upjv.asiprojet.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Cours {
     private int idCours;
     private String nomCours;
-    private String horaire;
+    private LocalDateTime horaire;
     private String lieu;
     private String description;
     private String instructeur;
 
-    public Cours(int id, String nc, String h, String li, String desc, String inst) {
+    public Cours(int id, String nc, LocalDateTime h, String li, String desc, String inst) {
         idCours = id;
         nomCours = nc;
         horaire = h;
@@ -35,11 +36,11 @@ public class Cours {
         this.nomCours = nomCours;
     }
 
-    public String getHoraire() {
+    public LocalDateTime getHoraire() {
         return horaire;
     }
 
-    public void setHoraire(String horaire) {
+    public void setHoraire(LocalDateTime horaire) {
         this.horaire = horaire;
     }
 
@@ -82,14 +83,17 @@ public class Cours {
     public String toStringSansDetailles() {
         return "Cours - " +
                 + idCours +
-                "\nNom : " + nomCours + "\nDate : " + horaire;
+                "\nNom : " + nomCours + "\nDate : " +
+                horaire.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) +
+                "\nHeure: " + horaire.format(DateTimeFormatter.ofPattern("HH:mm"));
     }
 
     public String toStringDetaille() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("ID du cours : ").append(idCours).append("\n");
         stringBuilder.append("Nom du cours : ").append(nomCours).append("\n");
-        stringBuilder.append("Horaire : ").append(horaire).append("\n");
+        stringBuilder.append("Horaire : ").append(horaire.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))).append("\n");
+        stringBuilder.append("Horaire : ").append(horaire.format(DateTimeFormatter.ofPattern("HH:mm"))).append("\n");
         stringBuilder.append("Lieu : ").append(lieu).append("\n");
         stringBuilder.append("Description : ").append(description).append("\n");
         stringBuilder.append("Instructeur : ").append(instructeur);

@@ -37,7 +37,7 @@ public class ListCoursActivity extends AppCompatActivity {
             coursList = (List<Cours>) msg.obj;
             if (coursList != null) {
                 // Mettre à jour l'UI avec la liste des objets Cours
-                updateUIWithCoursList(coursList);
+                listerListCours(coursList);
             }
             return true;
         }
@@ -76,7 +76,7 @@ public class ListCoursActivity extends AppCompatActivity {
         new ListCoursTask(handler).execute();
     }
 
-    private void updateUIWithCoursList(List<Cours> coursList) {
+    private void listerListCours(List<Cours> coursList) {
         // Créer un adaptateur personnalisé pour afficher les objets Cours
         ArrayAdapter<Cours> arrayAdapter = new ArrayAdapter<Cours>(this, android.R.layout.simple_list_item_1, coursList) {
             @NonNull

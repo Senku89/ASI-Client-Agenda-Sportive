@@ -73,8 +73,6 @@ public class LoginActivity extends AppCompatActivity {
             // Démarrer la tâche de connexion avec le Handler
             new LoginTask(username.getText().toString(), password.getText().toString(), handler).execute();
         });
-
-
     }
 
     //Deuxieme bouton
@@ -90,59 +88,3 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
-
-//A SUPPRIMER
-    /*
-    public void login() {
-
-    HttpURLConnection urlConnection = null;
-    try {
-        URL url = new URL("https://127.0.0.1:8080/api/login");
-        urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.setRequestMethod("POST");
-        urlConnection.setRequestProperty("Content-Type", "application/json");
-        urlConnection.setDoOutput(true);
-
-        String jsonInputString = "{\"username\": \"" + username + "\", \"password\": \"" + password + "\"}";
-        try (OutputStream os = urlConnection.getOutputStream()) {
-            byte[] input = jsonInputString.getBytes("utf-8");
-            os.write(input, 0, input.length);
-        }
-
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(urlConnection.getInputStream(), "utf-8"))) {
-            StringBuilder response = new StringBuilder();
-            String responseLine = null;
-            while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
-            }
-
-            String responseBody = response.toString();
-
-            // Analyser la réponse JSON
-            JSONObject jsonResponse = new JSONObject(responseBody);
-
-            // Extraire la valeur du champ "success" de l'objet JSON
-            boolean success = jsonResponse.getBoolean("success");
-
-            // En fonction de la réponse, prendre les mesures appropriées
-            if (success) {
-                // Connexion réussie
-                Log.d(TAG,"fonctionne");
-            } else {
-                // Échec de la connexion
-                Log.e(TAG,"fonctionne pas");
-            }
-
-        } catch (JSONException e) {
-            throw new RuntimeException(e);
-        }
-    } catch (IOException e) {
-        e.printStackTrace();
-    } finally {
-        if (urlConnection != null) {
-            urlConnection.disconnect();
-        }
-    }
-
-    }*/

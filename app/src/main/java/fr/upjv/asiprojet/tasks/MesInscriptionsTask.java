@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -80,7 +81,7 @@ public class MesInscriptionsTask {
             JSONObject coursObject = jsonResponse.getJSONObject(i);
             int idCours = coursObject.getInt("id");
             String nomCours = coursObject.getString("nomCours");
-            String horaire = coursObject.getString("horaire");
+            LocalDateTime horaire = LocalDateTime.parse(coursObject.getString("horaire"));
             String lieu = coursObject.getString("lieu");
             String description = coursObject.getString("description");
             String instructeur = coursObject.getString("instructeur");
