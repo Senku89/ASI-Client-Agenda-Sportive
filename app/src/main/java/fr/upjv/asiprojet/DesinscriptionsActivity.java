@@ -34,10 +34,10 @@ public class DesinscriptionsActivity extends AppCompatActivity {
             super.handleMessage(msg);
 
             // Vérifier le code de statut de la réponse
-            int statusCode = (int) msg.obj; // Cast the message object to int
+            int statusCode = (int) msg.obj;
             if (statusCode == HttpURLConnection.HTTP_OK) {
                 // La réponse est OK, récupérer la réponse de l'API et l'afficher
-                String response = (String) msg.getData().get("response"); // Get response from message data
+                String response = (String) msg.getData().get("response"); // Get response ici
                 Toast.makeText(DesinscriptionsActivity.this, response, Toast.LENGTH_SHORT).show();
             } else {
                 // La réponse n'est pas OK, afficher un message d'erreur
