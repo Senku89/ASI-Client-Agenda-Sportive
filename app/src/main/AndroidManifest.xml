@@ -21,10 +21,10 @@
                 android:name=".InscriptionsActivity"
                 android:exported="false"/>
         <activity
-                android:name=".VosInscriptionsActivity"
+                android:name=".MesInscriptionsActivity"
                 android:exported="false"/>
         <activity
-                android:name=".CalendarActivity"
+                android:name=".ListCoursActivity"
                 android:exported="false"/>
         <activity
                 android:name=".LoginActivity"
