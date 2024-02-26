@@ -85,7 +85,7 @@ public class ListCoursTask {
             String description = coursObject.getString("description");
             String instructeur = coursObject.getString("instructeur");
 
-            // Construire une classe Cours et l'ajouter à la liste
+            // Construire une classe Cours et l'ajouter à la liste pour les convertir
             Cours cours = new Cours(idCours, nomCours, horaire, lieu, description, instructeur);
             coursList.add(cours);
         }

@@ -113,21 +113,3 @@ public class MesInscriptionsActivity extends AppCompatActivity {
 
 }
 
-/*
-ListView ListVosInscriptions = findViewById(R.id.Liste2);
-        List<String> List = new ArrayList<>();
-        List.add("Tennis 12/01/2024");
-        List.add("Football 13/02/2024");
-        List.add("Rugby 14/02/2024");
-        List.add("Basketball 22/02/2024");
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,List);
-        ListVosInscriptions.setAdapter(arrayAdapter);
-        ListVosInscriptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-
-                startActivity(new Intent(VosInscriptionsActivity.this,DesinscriptionsActivity.class));
-            }
-
-        });
- */

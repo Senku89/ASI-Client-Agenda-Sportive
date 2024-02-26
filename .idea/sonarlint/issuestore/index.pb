@@ -1,6 +1,6 @@
 
 e
-5app/src/main/java/fr/upjv/asiprojet/MainActivity.java,1\a\1a6f917171e91360c0fc1c49346d137f247d3b82
+5app/src/main/java/fr/upjv/asiprojet/MainActivity.java,1/a/1a6f917171e91360c0fc1c49346d137f247d3b82
 f
 6app/src/main/java/fr/upjv/asiprojet/LoginActivity.java,2/7/2758c4b9cfd2e3b06c60f283c7965b00b1ca77ec
 m
@@ -39,3 +39,5 @@ h
 8app/src/main/java/fr/upjv/asiprojet/models/UserInfo.java,2/3/2315799e6515087c0d7ccc1c55edebdef4316d6f
 t
 Dapp/src/main/java/fr/upjv/asiprojet/tasks/DeleteInscriptionTask.java,b/a/ba42811460d36750c2cd09842dc3569f640257e9
+h
+8app/src/main/java/fr/upjv/asiprojet/tasks/LoginTask.java,d/a/daf69cb2b0b9b8f6f7575b55d6b572cbc0719b41
